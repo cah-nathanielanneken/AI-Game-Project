@@ -75,11 +75,9 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 
 
 								// Check out the results, relative to what we've seen before
-								if (toMaximize && (nextMove.score > bestMove.score || (nextMove.score ==
-										bestMove.score && localScore > nextMove.score))) {
+								if (toMaximize && nextMove.score > bestMove.score) {
 									bestMove.set(i, c, i + dir, c + horizDir, nextMove.score);
-								} else if (!toMaximize && (nextMove.score < bestMove.score || (nextMove.score ==
-										bestMove.score && localScore < nextMove.score))) {
+								} else if (!toMaximize && nextMove.score < bestMove.score) {
 									bestMove.set(i, c, i + dir, c + horizDir, nextMove.score);
 								}
 
@@ -114,7 +112,7 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 	public static void main(String [] args)
 	{
 		int depth = 6;
-		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBetaS", depth);
+		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		((BaseBreakthroughPlayer)p2).WEIGHT_TWO = ((BaseBreakthroughPlayer)p2).WEIGHT_THREE =
 //				((BaseBreakthroughPlayer)p2).WEIGHT_FOUR = 0;
