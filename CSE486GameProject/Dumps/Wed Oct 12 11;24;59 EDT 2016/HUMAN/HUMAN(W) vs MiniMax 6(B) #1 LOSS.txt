@@ -1,0 +1,1 @@
+MiniMax 6 won. HUMAN DQ'd

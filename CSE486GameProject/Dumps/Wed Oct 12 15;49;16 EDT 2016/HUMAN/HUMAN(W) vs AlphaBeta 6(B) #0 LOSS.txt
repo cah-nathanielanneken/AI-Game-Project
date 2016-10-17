@@ -1,0 +1,402 @@
+HUMAN (W) played 1 4 2 4
+BBBBBBBB
+BBBBBBBB
+........
+........
+........
+....W...
+WWWW.WWW
+WWWWWWWW
+[AWAY 1 GAME_ON]
+AlphaBeta 6 (B) played 6 0 5 0
+BBBBBBBB
+.BBBBBBB
+B.......
+........
+........
+....W...
+WWWW.WWW
+WWWWWWWW
+[HOME 2 GAME_ON]
+HUMAN (W) played 1 2 2 3
+BBBBBBBB
+.BBBBBBB
+B.......
+........
+........
+...WW...
+WW.W.WWW
+WWWWWWWW
+[AWAY 3 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 0
+BBBBBBBB
+.BBBBBBB
+........
+B.......
+........
+...WW...
+WW.W.WWW
+WWWWWWWW
+[HOME 4 GAME_ON]
+HUMAN (W) played 1 3 2 2
+BBBBBBBB
+.BBBBBBB
+........
+B.......
+........
+..WWW...
+WW...WWW
+WWWWWWWW
+[AWAY 5 GAME_ON]
+AlphaBeta 6 (B) played 4 0 3 0
+BBBBBBBB
+.BBBBBBB
+........
+........
+B.......
+..WWW...
+WW...WWW
+WWWWWWWW
+[HOME 6 GAME_ON]
+HUMAN (W) played 1 5 2 5
+BBBBBBBB
+.BBBBBBB
+........
+........
+B.......
+..WWWW..
+WW....WW
+WWWWWWWW
+[AWAY 7 GAME_ON]
+AlphaBeta 6 (B) played 7 0 6 0
+.BBBBBBB
+BBBBBBBB
+........
+........
+B.......
+..WWWW..
+WW....WW
+WWWWWWWW
+[HOME 8 GAME_ON]
+HUMAN (W) played 1 1 2 1
+.BBBBBBB
+BBBBBBBB
+........
+........
+B.......
+.WWWWW..
+W.....WW
+WWWWWWWW
+[AWAY 9 GAME_ON]
+AlphaBeta 6 (B) played 3 0 2 0
+.BBBBBBB
+BBBBBBBB
+........
+........
+........
+BWWWWW..
+W.....WW
+WWWWWWWW
+[HOME 10 GAME_ON]
+HUMAN (W) played 2 1 3 1
+.BBBBBBB
+BBBBBBBB
+........
+........
+.W......
+B.WWWW..
+W.....WW
+WWWWWWWW
+[AWAY 11 GAME_ON]
+AlphaBeta 6 (B) played 6 0 5 0
+.BBBBBBB
+.BBBBBBB
+B.......
+........
+.W......
+B.WWWW..
+W.....WW
+WWWWWWWW
+[HOME 12 GAME_ON]
+HUMAN (W) played 0 1 1 1
+.BBBBBBB
+.BBBBBBB
+B.......
+........
+.W......
+B.WWWW..
+WW....WW
+W.WWWWWW
+[AWAY 13 GAME_ON]
+AlphaBeta 6 (B) played 2 0 1 1
+.BBBBBBB
+.BBBBBBB
+B.......
+........
+.W......
+..WWWW..
+WB....WW
+W.WWWWWW
+[HOME 14 GAME_ON]
+HUMAN (W) played 0 0 1 1
+.BBBBBBB
+.BBBBBBB
+B.......
+........
+.W......
+..WWWW..
+WW....WW
+..WWWWWW
+[AWAY 15 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 1
+.BBBBBBB
+.BBBBBBB
+........
+.B......
+.W......
+..WWWW..
+WW....WW
+..WWWWWW
+[HOME 16 GAME_ON]
+HUMAN (W) played 1 7 2 7
+.BBBBBBB
+.BBBBBBB
+........
+.B......
+.W......
+..WWWW.W
+WW....W.
+..WWWWWW
+[AWAY 17 GAME_ON]
+AlphaBeta 6 (B) played 4 1 3 0
+.BBBBBBB
+.BBBBBBB
+........
+........
+BW......
+..WWWW.W
+WW....W.
+..WWWWWW
+[HOME 18 GAME_ON]
+HUMAN (W) played 2 5 3 5
+.BBBBBBB
+.BBBBBBB
+........
+........
+BW...W..
+..WWW..W
+WW....W.
+..WWWWWW
+[AWAY 19 GAME_ON]
+AlphaBeta 6 (B) played 6 1 5 0
+.BBBBBBB
+..BBBBBB
+B.......
+........
+BW...W..
+..WWW..W
+WW....W.
+..WWWWWW
+[HOME 20 GAME_ON]
+HUMAN (W) played 0 7 1 7
+.BBBBBBB
+..BBBBBB
+B.......
+........
+BW...W..
+..WWW..W
+WW....WW
+..WWWWW.
+[AWAY 21 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 1
+.BBBBBBB
+..BBBBBB
+........
+.B......
+BW...W..
+..WWW..W
+WW....WW
+..WWWWW.
+[HOME 22 GAME_ON]
+HUMAN (W) played 1 7 2 6
+.BBBBBBB
+..BBBBBB
+........
+.B......
+BW...W..
+..WWW.WW
+WW....W.
+..WWWWW.
+[AWAY 23 GAME_ON]
+AlphaBeta 6 (B) played 7 1 6 0
+..BBBBBB
+B.BBBBBB
+........
+.B......
+BW...W..
+..WWW.WW
+WW....W.
+..WWWWW.
+[HOME 24 GAME_ON]
+HUMAN (W) played 2 3 3 3
+..BBBBBB
+B.BBBBBB
+........
+.B......
+BW.W.W..
+..W.W.WW
+WW....W.
+..WWWWW.
+[AWAY 25 GAME_ON]
+AlphaBeta 6 (B) played 6 0 5 0
+..BBBBBB
+..BBBBBB
+B.......
+.B......
+BW.W.W..
+..W.W.WW
+WW....W.
+..WWWWW.
+[HOME 26 GAME_ON]
+HUMAN (W) played 2 4 3 4
+..BBBBBB
+..BBBBBB
+B.......
+.B......
+BW.WWW..
+..W...WW
+WW....W.
+..WWWWW.
+[AWAY 27 GAME_ON]
+AlphaBeta 6 (B) played 4 1 3 2
+..BBBBBB
+..BBBBBB
+B.......
+........
+BWBWWW..
+..W...WW
+WW....W.
+..WWWWW.
+[HOME 28 GAME_ON]
+HUMAN (W) played 3 3 4 3
+..BBBBBB
+..BBBBBB
+B.......
+...W....
+BWB.WW..
+..W...WW
+WW....W.
+..WWWWW.
+[AWAY 29 GAME_ON]
+AlphaBeta 6 (B) played 3 0 2 1
+..BBBBBB
+..BBBBBB
+B.......
+...W....
+.WB.WW..
+.BW...WW
+WW....W.
+..WWWWW.
+[HOME 30 GAME_ON]
+HUMAN (W) played 1 0 2 1
+..BBBBBB
+..BBBBBB
+B.......
+...W....
+.WB.WW..
+.WW...WW
+.W....W.
+..WWWWW.
+[AWAY 31 GAME_ON]
+AlphaBeta 6 (B) played 3 2 2 1
+..BBBBBB
+..BBBBBB
+B.......
+...W....
+.W..WW..
+.BW...WW
+.W....W.
+..WWWWW.
+[HOME 32 GAME_ON]
+HUMAN (W) played 3 5 4 6
+..BBBBBB
+..BBBBBB
+B.......
+...W..W.
+.W..W...
+.BW...WW
+.W....W.
+..WWWWW.
+[AWAY 33 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 0
+..BBBBBB
+..BBBBBB
+........
+B..W..W.
+.W..W...
+.BW...WW
+.W....W.
+..WWWWW.
+[HOME 34 GAME_ON]
+HUMAN (W) played 3 4 4 4
+..BBBBBB
+..BBBBBB
+........
+B..WW.W.
+.W......
+.BW...WW
+.W....W.
+..WWWWW.
+[AWAY 35 GAME_ON]
+AlphaBeta 6 (B) played 4 0 3 0
+..BBBBBB
+..BBBBBB
+........
+...WW.W.
+BW......
+.BW...WW
+.W....W.
+..WWWWW.
+[HOME 36 GAME_ON]
+HUMAN (W) played 1 1 2 0
+..BBBBBB
+..BBBBBB
+........
+...WW.W.
+BW......
+WBW...WW
+......W.
+..WWWWW.
+[AWAY 37 GAME_ON]
+AlphaBeta 6 (B) played 2 1 1 0
+..BBBBBB
+..BBBBBB
+........
+...WW.W.
+BW......
+W.W...WW
+B.....W.
+..WWWWW.
+[HOME 38 GAME_ON]
+HUMAN (W) played 0 2 1 2
+..BBBBBB
+..BBBBBB
+........
+...WW.W.
+BW......
+W.W...WW
+B.W...W.
+...WWWW.
+[AWAY 39 GAME_ON]
+AlphaBeta 6 (B) played 1 0 0 0
+..BBBBBB
+..BBBBBB
+........
+...WW.W.
+BW......
+W.W...WW
+..W...W.
+B..WWWW.
+[HOME 40 AWAY_WIN]
+AlphaBeta 6 (B) (238.112000 seconds remaining) won.
+HUMAN had 9904.304000 seconds remaining.

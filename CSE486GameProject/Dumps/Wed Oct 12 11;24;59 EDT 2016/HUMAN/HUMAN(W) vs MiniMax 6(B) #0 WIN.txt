@@ -1,0 +1,512 @@
+HUMAN (W) played 1 5 2 5
+BBBBBBBB
+BBBBBBBB
+........
+........
+........
+.....W..
+WWWWW.WW
+WWWWWWWW
+[AWAY 1 GAME_ON]
+MiniMax 6 (B) played 6 1 5 0
+BBBBBBBB
+B.BBBBBB
+B.......
+........
+........
+.....W..
+WWWWW.WW
+WWWWWWWW
+[HOME 2 GAME_ON]
+HUMAN (W) played 2 5 3 6
+BBBBBBBB
+B.BBBBBB
+B.......
+........
+......W.
+........
+WWWWW.WW
+WWWWWWWW
+[AWAY 3 GAME_ON]
+MiniMax 6 (B) played 6 2 5 1
+BBBBBBBB
+B..BBBBB
+BB......
+........
+......W.
+........
+WWWWW.WW
+WWWWWWWW
+[HOME 4 GAME_ON]
+HUMAN (W) played 1 4 2 3
+BBBBBBBB
+B..BBBBB
+BB......
+........
+......W.
+...W....
+WWWW..WW
+WWWWWWWW
+[AWAY 5 GAME_ON]
+MiniMax 6 (B) played 5 1 4 0
+BBBBBBBB
+B..BBBBB
+B.......
+B.......
+......W.
+...W....
+WWWW..WW
+WWWWWWWW
+[HOME 6 GAME_ON]
+HUMAN (W) played 1 6 2 6
+BBBBBBBB
+B..BBBBB
+B.......
+B.......
+......W.
+...W..W.
+WWWW...W
+WWWWWWWW
+[AWAY 7 GAME_ON]
+MiniMax 6 (B) played 6 3 5 2
+BBBBBBBB
+B...BBBB
+B.B.....
+B.......
+......W.
+...W..W.
+WWWW...W
+WWWWWWWW
+[HOME 8 GAME_ON]
+HUMAN (W) played 2 3 3 3
+BBBBBBBB
+B...BBBB
+B.B.....
+B.......
+...W..W.
+......W.
+WWWW...W
+WWWWWWWW
+[AWAY 9 GAME_ON]
+MiniMax 6 (B) played 5 2 4 1
+BBBBBBBB
+B...BBBB
+B.......
+BB......
+...W..W.
+......W.
+WWWW...W
+WWWWWWWW
+[HOME 10 GAME_ON]
+HUMAN (W) played 1 1 2 1
+BBBBBBBB
+B...BBBB
+B.......
+BB......
+...W..W.
+.W....W.
+W.WW...W
+WWWWWWWW
+[AWAY 11 GAME_ON]
+MiniMax 6 (B) played 4 1 3 0
+BBBBBBBB
+B...BBBB
+B.......
+B.......
+B..W..W.
+.W....W.
+W.WW...W
+WWWWWWWW
+[HOME 12 GAME_ON]
+HUMAN (W) played 2 1 3 0
+BBBBBBBB
+B...BBBB
+B.......
+B.......
+W..W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[AWAY 13 GAME_ON]
+MiniMax 6 (B) played 6 4 5 3
+BBBBBBBB
+B....BBB
+B..B....
+B.......
+W..W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[HOME 14 GAME_ON]
+HUMAN (W) played 3 0 4 1
+BBBBBBBB
+B....BBB
+B..B....
+BW......
+...W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[AWAY 15 GAME_ON]
+MiniMax 6 (B) played 5 3 4 2
+BBBBBBBB
+B....BBB
+B.......
+BWB.....
+...W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[HOME 16 GAME_ON]
+HUMAN (W) played 4 1 5 0
+BBBBBBBB
+B....BBB
+W.......
+B.B.....
+...W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[AWAY 17 GAME_ON]
+MiniMax 6 (B) played 4 2 3 1
+BBBBBBBB
+B....BBB
+W.......
+B.......
+.B.W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[HOME 18 GAME_ON]
+HUMAN (W) played 5 0 6 1
+BBBBBBBB
+BW...BBB
+........
+B.......
+.B.W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[AWAY 19 GAME_ON]
+MiniMax 6 (B) played 7 2 6 1
+BB.BBBBB
+BB...BBB
+........
+B.......
+.B.W..W.
+......W.
+W.WW...W
+WWWWWWWW
+[HOME 20 GAME_ON]
+HUMAN (W) played 3 3 4 2
+BB.BBBBB
+BB...BBB
+........
+B.W.....
+.B....W.
+......W.
+W.WW...W
+WWWWWWWW
+[AWAY 21 GAME_ON]
+MiniMax 6 (B) played 3 1 2 0
+BB.BBBBB
+BB...BBB
+........
+B.W.....
+......W.
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 22 GAME_ON]
+HUMAN (W) played 4 2 5 1
+BB.BBBBB
+BB...BBB
+.W......
+B.......
+......W.
+B.....W.
+W.WW...W
+WWWWWWWW
+[AWAY 23 GAME_ON]
+MiniMax 6 (B) played 6 1 5 0
+BB.BBBBB
+B....BBB
+BW......
+B.......
+......W.
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 24 GAME_ON]
+HUMAN (W) played 5 1 6 0
+BB.BBBBB
+W....BBB
+B.......
+B.......
+......W.
+B.....W.
+W.WW...W
+WWWWWWWW
+[AWAY 25 GAME_ON]
+MiniMax 6 (B) played 7 1 6 0
+B..BBBBB
+B....BBB
+B.......
+B.......
+......W.
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 26 GAME_ON]
+HUMAN (W) played 3 6 4 5
+B..BBBBB
+B....BBB
+B.......
+B....W..
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[AWAY 27 GAME_ON]
+MiniMax 6 (B) played 6 5 5 4
+B..BBBBB
+B.....BB
+B...B...
+B....W..
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 28 GAME_ON]
+HUMAN (W) played 4 5 5 4
+B..BBBBB
+B.....BB
+B...W...
+B.......
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[AWAY 29 GAME_ON]
+MiniMax 6 (B) played 6 6 5 5
+B..BBBBB
+B......B
+B...WB..
+B.......
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 30 GAME_ON]
+HUMAN (W) played 5 4 6 5
+B..BBBBB
+B....W.B
+B....B..
+B.......
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[AWAY 31 GAME_ON]
+MiniMax 6 (B) played 7 6 6 5
+B..BBB.B
+B....B.B
+B....B..
+B.......
+........
+B.....W.
+W.WW...W
+WWWWWWWW
+[HOME 32 GAME_ON]
+HUMAN (W) played 2 6 3 5
+B..BBB.B
+B....B.B
+B....B..
+B.......
+.....W..
+B.......
+W.WW...W
+WWWWWWWW
+[AWAY 33 GAME_ON]
+MiniMax 6 (B) played 5 5 4 4
+B..BBB.B
+B....B.B
+B.......
+B...B...
+.....W..
+B.......
+W.WW...W
+WWWWWWWW
+[HOME 34 GAME_ON]
+HUMAN (W) played 3 5 4 4
+B..BBB.B
+B....B.B
+B.......
+B...W...
+........
+B.......
+W.WW...W
+WWWWWWWW
+[AWAY 35 GAME_ON]
+MiniMax 6 (B) played 6 5 5 4
+B..BBB.B
+B......B
+B...B...
+B...W...
+........
+B.......
+W.WW...W
+WWWWWWWW
+[HOME 36 GAME_ON]
+HUMAN (W) played 4 4 5 5
+B..BBB.B
+B......B
+B...BW..
+B.......
+........
+B.......
+W.WW...W
+WWWWWWWW
+[AWAY 37 GAME_ON]
+MiniMax 6 (B) played 5 4 4 3
+B..BBB.B
+B......B
+B....W..
+B..B....
+........
+B.......
+W.WW...W
+WWWWWWWW
+[HOME 38 GAME_ON]
+HUMAN (W) played 5 5 6 4
+B..BBB.B
+B...W..B
+B.......
+B..B....
+........
+B.......
+W.WW...W
+WWWWWWWW
+[AWAY 39 GAME_ON]
+MiniMax 6 (B) played 7 5 6 4
+B..BB..B
+B...B..B
+B.......
+B..B....
+........
+B.......
+W.WW...W
+WWWWWWWW
+[HOME 40 GAME_ON]
+HUMAN (W) played 1 3 2 4
+B..BB..B
+B...B..B
+B.......
+B..B....
+........
+B...W...
+W.W....W
+WWWWWWWW
+[AWAY 41 GAME_ON]
+MiniMax 6 (B) played 4 3 3 2
+B..BB..B
+B...B..B
+B.......
+B.......
+..B.....
+B...W...
+W.W....W
+WWWWWWWW
+[HOME 42 GAME_ON]
+HUMAN (W) played 2 4 3 3
+B..BB..B
+B...B..B
+B.......
+B.......
+..BW....
+B.......
+W.W....W
+WWWWWWWW
+[AWAY 43 GAME_ON]
+MiniMax 6 (B) played 6 4 5 3
+B..BB..B
+B......B
+B..B....
+B.......
+..BW....
+B.......
+W.W....W
+WWWWWWWW
+[HOME 44 GAME_ON]
+HUMAN (W) played 3 3 4 4
+B..BB..B
+B......B
+B..B....
+B...W...
+..B.....
+B.......
+W.W....W
+WWWWWWWW
+[AWAY 45 GAME_ON]
+MiniMax 6 (B) played 5 3 4 2
+B..BB..B
+B......B
+B.......
+B.B.W...
+..B.....
+B.......
+W.W....W
+WWWWWWWW
+[HOME 46 GAME_ON]
+HUMAN (W) played 4 4 5 4
+B..BB..B
+B......B
+B...W...
+B.B.....
+..B.....
+B.......
+W.W....W
+WWWWWWWW
+[AWAY 47 GAME_ON]
+MiniMax 6 (B) played 3 2 2 1
+B..BB..B
+B......B
+B...W...
+B.B.....
+........
+BB......
+W.W....W
+WWWWWWWW
+[HOME 48 GAME_ON]
+HUMAN (W) played 5 4 6 4
+B..BB..B
+B...W..B
+B.......
+B.B.....
+........
+BB......
+W.W....W
+WWWWWWWW
+[AWAY 49 GAME_ON]
+MiniMax 6 (B) played 2 1 1 0
+B..BB..B
+B...W..B
+B.......
+B.B.....
+........
+B.......
+B.W....W
+WWWWWWWW
+[HOME 50 GAME_ON]
+HUMAN (W) played 6 4 7 3
+B..WB..B
+B......B
+B.......
+B.B.....
+........
+B.......
+B.W....W
+WWWWWWWW
+[AWAY 51 HOME_WIN]
+HUMAN (W) (9854.805000 seconds remaining) won.
+MiniMax 6 had 233.263000 seconds remaining.

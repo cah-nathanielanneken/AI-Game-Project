@@ -1,0 +1,422 @@
+Greedy BT+ (W) played 1 4 2 5
+BBBBBBBB
+BBBBBBBB
+........
+........
+........
+.....W..
+WWWW.WWW
+WWWWWWWW
+[AWAY 1 GAME_ON]
+AlphaBeta 6 (B) played 6 0 5 0
+BBBBBBBB
+.BBBBBBB
+B.......
+........
+........
+.....W..
+WWWW.WWW
+WWWWWWWW
+[HOME 2 GAME_ON]
+Greedy BT+ (W) played 2 5 3 6
+BBBBBBBB
+.BBBBBBB
+B.......
+........
+......W.
+........
+WWWW.WWW
+WWWWWWWW
+[AWAY 3 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 0
+BBBBBBBB
+.BBBBBBB
+........
+B.......
+......W.
+........
+WWWW.WWW
+WWWWWWWW
+[HOME 4 GAME_ON]
+Greedy BT+ (W) played 1 2 2 2
+BBBBBBBB
+.BBBBBBB
+........
+B.......
+......W.
+..W.....
+WW.W.WWW
+WWWWWWWW
+[AWAY 5 GAME_ON]
+AlphaBeta 6 (B) played 4 0 3 0
+BBBBBBBB
+.BBBBBBB
+........
+........
+B.....W.
+..W.....
+WW.W.WWW
+WWWWWWWW
+[HOME 6 GAME_ON]
+Greedy BT+ (W) played 2 2 3 1
+BBBBBBBB
+.BBBBBBB
+........
+........
+BW....W.
+........
+WW.W.WWW
+WWWWWWWW
+[AWAY 7 GAME_ON]
+AlphaBeta 6 (B) played 6 1 5 0
+BBBBBBBB
+..BBBBBB
+B.......
+........
+BW....W.
+........
+WW.W.WWW
+WWWWWWWW
+[HOME 8 GAME_ON]
+Greedy BT+ (W) played 0 5 1 4
+BBBBBBBB
+..BBBBBB
+B.......
+........
+BW....W.
+........
+WW.WWWWW
+WWWWW.WW
+[AWAY 9 GAME_ON]
+AlphaBeta 6 (B) played 5 0 4 1
+BBBBBBBB
+..BBBBBB
+........
+.B......
+BW....W.
+........
+WW.WWWWW
+WWWWW.WW
+[HOME 10 GAME_ON]
+Greedy BT+ (W) played 1 4 2 5
+BBBBBBBB
+..BBBBBB
+........
+.B......
+BW....W.
+.....W..
+WW.W.WWW
+WWWWW.WW
+[AWAY 11 GAME_ON]
+AlphaBeta 6 (B) played 4 1 3 2
+BBBBBBBB
+..BBBBBB
+........
+........
+BWB...W.
+.....W..
+WW.W.WWW
+WWWWW.WW
+[HOME 12 GAME_ON]
+Greedy BT+ (W) played 1 7 2 7
+BBBBBBBB
+..BBBBBB
+........
+........
+BWB...W.
+.....W.W
+WW.W.WW.
+WWWWW.WW
+[AWAY 13 GAME_ON]
+AlphaBeta 6 (B) played 3 0 2 1
+BBBBBBBB
+..BBBBBB
+........
+........
+.WB...W.
+.B...W.W
+WW.W.WW.
+WWWWW.WW
+[HOME 14 GAME_ON]
+Greedy BT+ (W) played 1 0 2 1
+BBBBBBBB
+..BBBBBB
+........
+........
+.WB...W.
+.W...W.W
+.W.W.WW.
+WWWWW.WW
+[AWAY 15 GAME_ON]
+AlphaBeta 6 (B) played 3 2 2 1
+BBBBBBBB
+..BBBBBB
+........
+........
+.W....W.
+.B...W.W
+.W.W.WW.
+WWWWW.WW
+[HOME 16 GAME_ON]
+Greedy BT+ (W) played 1 3 2 4
+BBBBBBBB
+..BBBBBB
+........
+........
+.W....W.
+.B..WW.W
+.W...WW.
+WWWWW.WW
+[AWAY 17 GAME_ON]
+AlphaBeta 6 (B) played 6 2 5 1
+BBBBBBBB
+...BBBBB
+.B......
+........
+.W....W.
+.B..WW.W
+.W...WW.
+WWWWW.WW
+[HOME 18 GAME_ON]
+Greedy BT+ (W) played 3 6 4 7
+BBBBBBBB
+...BBBBB
+.B......
+.......W
+.W......
+.B..WW.W
+.W...WW.
+WWWWW.WW
+[AWAY 19 GAME_ON]
+AlphaBeta 6 (B) played 5 1 4 1
+BBBBBBBB
+...BBBBB
+........
+.B.....W
+.W......
+.B..WW.W
+.W...WW.
+WWWWW.WW
+[HOME 20 GAME_ON]
+Greedy BT+ (W) played 2 5 3 4
+BBBBBBBB
+...BBBBB
+........
+.B.....W
+.W..W...
+.B..W..W
+.W...WW.
+WWWWW.WW
+[AWAY 21 GAME_ON]
+AlphaBeta 6 (B) played 4 1 3 0
+BBBBBBBB
+...BBBBB
+........
+.......W
+BW..W...
+.B..W..W
+.W...WW.
+WWWWW.WW
+[HOME 22 GAME_ON]
+Greedy BT+ (W) played 3 4 4 5
+BBBBBBBB
+...BBBBB
+........
+.....W.W
+BW......
+.B..W..W
+.W...WW.
+WWWWW.WW
+[AWAY 23 GAME_ON]
+AlphaBeta 6 (B) played 6 3 5 2
+BBBBBBBB
+....BBBB
+..B.....
+.....W.W
+BW......
+.B..W..W
+.W...WW.
+WWWWW.WW
+[HOME 24 GAME_ON]
+Greedy BT+ (W) played 0 4 1 4
+BBBBBBBB
+....BBBB
+..B.....
+.....W.W
+BW......
+.B..W..W
+.W..WWW.
+WWWW..WW
+[AWAY 25 GAME_ON]
+AlphaBeta 6 (B) played 5 2 4 1
+BBBBBBBB
+....BBBB
+........
+.B...W.W
+BW......
+.B..W..W
+.W..WWW.
+WWWW..WW
+[HOME 26 GAME_ON]
+Greedy BT+ (W) played 1 4 2 3
+BBBBBBBB
+....BBBB
+........
+.B...W.W
+BW......
+.B.WW..W
+.W...WW.
+WWWW..WW
+[AWAY 27 GAME_ON]
+AlphaBeta 6 (B) played 6 4 5 3
+BBBBBBBB
+.....BBB
+...B....
+.B...W.W
+BW......
+.B.WW..W
+.W...WW.
+WWWW..WW
+[HOME 28 GAME_ON]
+Greedy BT+ (W) played 0 3 1 2
+BBBBBBBB
+.....BBB
+...B....
+.B...W.W
+BW......
+.B.WW..W
+.WW..WW.
+WWW...WW
+[AWAY 29 GAME_ON]
+AlphaBeta 6 (B) played 2 1 1 2
+BBBBBBBB
+.....BBB
+...B....
+.B...W.W
+BW......
+...WW..W
+.WB..WW.
+WWW...WW
+[HOME 30 GAME_ON]
+Greedy BT+ (W) played 0 1 1 2
+BBBBBBBB
+.....BBB
+...B....
+.B...W.W
+BW......
+...WW..W
+.WW..WW.
+W.W...WW
+[AWAY 31 GAME_ON]
+AlphaBeta 6 (B) played 5 3 4 3
+BBBBBBBB
+.....BBB
+........
+.B.B.W.W
+BW......
+...WW..W
+.WW..WW.
+W.W...WW
+[HOME 32 GAME_ON]
+Greedy BT+ (W) played 1 5 2 5
+BBBBBBBB
+.....BBB
+........
+.B.B.W.W
+BW......
+...WWW.W
+.WW...W.
+W.W...WW
+[AWAY 33 GAME_ON]
+AlphaBeta 6 (B) played 4 1 3 2
+BBBBBBBB
+.....BBB
+........
+...B.W.W
+BWB.....
+...WWW.W
+.WW...W.
+W.W...WW
+[HOME 34 GAME_ON]
+Greedy BT+ (W) played 2 3 3 2
+BBBBBBBB
+.....BBB
+........
+...B.W.W
+BWW.....
+....WW.W
+.WW...W.
+W.W...WW
+[AWAY 35 GAME_ON]
+AlphaBeta 6 (B) played 4 3 3 2
+BBBBBBBB
+.....BBB
+........
+.....W.W
+BWB.....
+....WW.W
+.WW...W.
+W.W...WW
+[HOME 36 GAME_ON]
+Greedy BT+ (W) played 1 1 2 2
+BBBBBBBB
+.....BBB
+........
+.....W.W
+BWB.....
+..W.WW.W
+..W...W.
+W.W...WW
+[AWAY 37 GAME_ON]
+AlphaBeta 6 (B) played 3 0 2 0
+BBBBBBBB
+.....BBB
+........
+.....W.W
+.WB.....
+B.W.WW.W
+..W...W.
+W.W...WW
+[HOME 38 GAME_ON]
+Greedy BT+ (W) played 0 7 1 7
+BBBBBBBB
+.....BBB
+........
+.....W.W
+.WB.....
+B.W.WW.W
+..W...WW
+W.W...W.
+[AWAY 39 GAME_ON]
+AlphaBeta 6 (B) played 2 0 1 0
+BBBBBBBB
+.....BBB
+........
+.....W.W
+.WB.....
+..W.WW.W
+B.W...WW
+W.W...W.
+[HOME 40 GAME_ON]
+Greedy BT+ (W) played 2 4 3 5
+BBBBBBBB
+.....BBB
+........
+.....W.W
+.WB..W..
+..W..W.W
+B.W...WW
+W.W...W.
+[AWAY 41 GAME_ON]
+AlphaBeta 6 (B) played 1 0 0 1
+BBBBBBBB
+.....BBB
+........
+.....W.W
+.WB..W..
+..W..W.W
+..W...WW
+WBW...W.
+[HOME 42 AWAY_WIN]
+AlphaBeta 6 (B) (238.899000 seconds remaining) won.
+Greedy BT+ had 239.990000 seconds remaining.
