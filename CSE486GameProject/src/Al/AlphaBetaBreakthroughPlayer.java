@@ -11,6 +11,8 @@ import game.GameMove;
 import game.GamePlayer;
 import game.GameState;
 
+import java.util.concurrent.*;
+
 
 // AlphaBetaConnect4Player is identical to MiniMaxConnect4Player
 // except for the search process, which uses alpha beta pruning.
@@ -18,6 +20,21 @@ import game.GameState;
 public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 	public AlphaBetaBreakthroughPlayer(String nname, int d)
 	{ super(nname, d); }
+
+	protected class AlphaBetaTask implements Callable<ScoredBreakthroughMove> {
+		BreakthroughState brd;
+
+		public AlphaBetaTask(BreakthroughState brd) {
+			super();
+			this.brd = brd;
+		}
+
+		@Override
+		public ScoredBreakthroughMove call() throws Exception {
+			alphaBeta(brd, 0, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+			return mvStack[0];
+		}
+	}
 
 	/**
 	 * Performs alpha beta pruning.
@@ -38,6 +55,7 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 			;
 		} else if (currDepth == depthLimit) {
 			mvStack[currDepth].set(0, 0, 0, 0, evalBoard(brd));
+			;
 		} else {
 			ScoredBreakthroughMove tempMv = new ScoredBreakthroughMove(0, 0, 0, 0, 0);
 			int dir = brd.who == GameState.Who.HOME ? +1 : -1;
@@ -50,10 +68,10 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 			bestMove.set(0, 0, 0, 0, bestScore);
 			GameState.Who currTurn = brd.getWho();
 
-			for (int i = 0; i < BreakthroughState.N; i++) {
+			for (int i = (currTurn.equals(GameState.Who.HOME) ? BreakthroughState.N - 1 : 0);
+				 (currTurn.equals(GameState.Who.AWAY) && i < BreakthroughState.N) ||
+						 (currTurn.equals(GameState.Who.HOME) && i >= 0);) {
 				for (int c = 0; c < BreakthroughState.N; c++) {
-//			for (int i = BreakthroughState.N - 1; i >= 0; i--) {
-//				for (int c = BreakthroughState.N - 1; c >= 0; c--) {
 					if (brd.board[i][c] == (currTurn.equals(GameState.Who.HOME) ? BreakthroughState.homeSym
 							: BreakthroughState.awaySym)) {
 						// Make move on board
@@ -62,7 +80,6 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 							if (brd.moveOK(tempMv)) {
 								char val = brd.board[i + dir][c + horizDir];
 								brd.makeMove(tempMv);
-								int localScore = evalBoard(brd);
 								alphaBeta(brd, currDepth + 1, alpha, beta);
 
 								// Undo move
@@ -97,21 +114,60 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 						}
 					}
 				}
+				i += currTurn.equals(GameState.Who.HOME) ? -1 : 1;
 			}
 		}
 	}
 		
 	public GameMove getMove(GameState brd, String lastMove)
-	{ 
-		alphaBeta((BreakthroughState)brd, 0, Double.NEGATIVE_INFINITY,
-										 Double.POSITIVE_INFINITY);
-		System.out.println(mvStack[0].score + " -> " + mvStack[0].toString());
-		return mvStack[0];
+	{
+		ScoredBreakthroughMove finalBestMove = new ScoredBreakthroughMove(0, 0, 0, 0, 0), temp;
+		int dLimit = this.depthLimit;
+
+		// Set iterative deepening time limit to 3 seconds
+		long endTime = System.currentTimeMillis() + 3000;
+		// Create thread to run alpha beta searches
+		ExecutorService service = Executors.newSingleThreadExecutor(new ThreadFactory(){
+			public Thread newThread(Runnable r) {
+				Thread t = new Thread(r);
+				t.setDaemon(true);
+				return t;
+			}
+		});
+
+		// While we are less then our maximum depth limit
+		for (int i = 1; i <= dLimit; i++) {
+			// Set search's limit to the current depth
+			this.depthLimit = i;
+			// Create asynchronous object to be resolved to the best move possible at the current depth limit
+			Future<ScoredBreakthroughMove> bestMove = service.submit(
+					new AlphaBetaTask((BreakthroughState)brd.clone()));
+			try {
+				// Resolve asynchronous object
+				temp = bestMove.get(endTime - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
+				// Set deepest best move to the most recently resolved best move
+				finalBestMove.set(temp.startRow, temp.startCol, temp.endingRow, temp.endingCol, temp.score);
+			} catch (Exception ex) {
+				// Kill the asynchronous execution
+				bestMove.cancel(true);
+				break;
+			}
+			// If best possible solution, no need to continue searching deeper
+			if (Math.abs(finalBestMove.score) == MAX_SCORE) {
+				break;
+			}
+		}
+		// Shutdown extra thread
+		service.shutdownNow();
+		// Reset the original depth limit
+		this.depthLimit = dLimit;
+
+		return finalBestMove;
 	}
 	
 	public static void main(String [] args)
 	{
-		int depth = 6;
+		int depth = 20;
 		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		((BaseBreakthroughPlayer)p2).WEIGHT_TWO = ((BaseBreakthroughPlayer)p2).WEIGHT_THREE =
@@ -124,14 +180,14 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 //		p.init();
 //		String brd =
 //				"BBBBBBBB" +
-//				"BBBBB..B" +
-//				".....BB." +
+//				"BBBB.BB." +
+//				"....B..B" +
+//				"WB......" +
 //				"........" +
-//				".......W" +
 //				"........" +
-//				"WWWWWWW." +
 //				"WWWWWWWW" +
-//				"[HOME 4 GAME_ON]";
+//				".WWWWWWW" +
+//				"[AWAY 5 GAME_ON]";
 //
 //		BreakthroughState state = new BreakthroughState();
 //		state.parseMsgString(brd);
