@@ -29,9 +29,18 @@ public class MiniMaxBreakthroughPlayer extends BaseBreakthroughPlayer {
 			score = s;
 		}
 
+		public ScoredBreakthroughMove(ScoredBreakthroughMove setterVals) {
+			super(setterVals.startRow, setterVals.startCol, setterVals.endingRow, setterVals.endingCol);
+			score = setterVals.score;
+		}
+
 		public void set(int r1, int c1, int r2, int c2, double s) {
 			startRow = r1; startCol = c1; endingRow = r2; endingCol = c2;
 			score = s;
+		}
+
+		public void set(ScoredBreakthroughMove setterVals) {
+			set(setterVals.startRow, setterVals.startCol, setterVals.endingRow, setterVals.endingCol, setterVals.score);
 		}
 
 		public double score;
@@ -128,7 +137,7 @@ public class MiniMaxBreakthroughPlayer extends BaseBreakthroughPlayer {
 	}
 
 	public static void main(String[] args) {
-		int depth = 2;
+		int depth = 5;
 		GamePlayer p = new MiniMaxBreakthroughPlayer("MiniMax " + depth, depth);
 		p.compete(args);
 	}
