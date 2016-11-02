@@ -2,7 +2,7 @@ GAME=Breakthrough
 # TTT Connect4 Breakthrough Clobber Hijara Hex Connect6 Domineering
 
 NUMCLIENTS=2
-NUMGAMES=1
+NUMGAMES=50
 
 PORT=32101
 HOST=127.0.0.1

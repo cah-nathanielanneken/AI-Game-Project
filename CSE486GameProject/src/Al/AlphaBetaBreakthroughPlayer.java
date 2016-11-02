@@ -262,10 +262,11 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 			// Assume opponent makes this move and start new search
 			searchOnOpponentTurn((BreakthroughState)brd, this.depthLimit, response);
 			return response;
+		} else if (opponentThinkTask != null) {
+			// Kill search
+			opponentThinkTask.cancel(true);
+			thread.interrupt();
 		}
-		// Kill search
-		opponentThinkTask.cancel(true);
-		thread.interrupt();
 		// Perform new search and return results with actual opponent move
 		return iterateDeepeningSearch(brd, 3000);
 	}
