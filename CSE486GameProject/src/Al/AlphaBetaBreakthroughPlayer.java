@@ -23,6 +23,7 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 			currentPredictedOppMove;
 	public FutureTask<ScoredBreakthroughMove> opponentThinkTask;
 	public Thread thread;
+	public long timeLeft;
 
 	public AlphaBetaBreakthroughPlayer(String nname, int d)
 	{
@@ -240,70 +241,102 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 		thread.setDaemon(true);
 		thread.start();
 	}
+
+	private void killSearch() {
+		if (opponentThinkTask != null) {
+			// Kill search
+			opponentThinkTask.cancel(true);
+			thread.interrupt();
+		}
+	}
+
 		
 	public GameMove getMove(GameState brd, String lastMove)
 	{
+		// 0 - 5 seconds used, do search (first 6 moves)
+		// 5 - 155 seconds used (150 seconds), 5 second moves
+		// 155 - 230 seconds used (75 seconds), 3 second moves
+		// 230 - 240 seconds used (10 seconds), 5 depth search
+
+		long startTime = System.currentTimeMillis();
 		// New board game, reset predicted moves
 		if (brd.getNumMoves() <= 1) {
 			predictedOpponentMove.set(0, 0, 0, 0, 0);
+			//timeLeft = BreakthroughState.gameParams.integer("GAMETIME");
+			timeLeft = 240000;
 		}
+		// Set turn time
+		int timeForMove;
+		if (timeLeft >= 85000) {
+			// 5 second turns
+			System.out.println("5 second turn!!");
+			timeForMove = 5000;
+		} else if (timeLeft >= 10000) {
+			// 3 second turns
+			System.out.println("3 second turn!!");
+			timeForMove = 3000;
+		} else {
+			// Panic mode
+			System.out.println("PANIC TIME");
+			killSearch();
+			init();
+			alphaBeta((BreakthroughState)brd, 0, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 5);
+			return mvStack[0];
+		}
+
 		// If AI correctly guessed opponents move
 		if (predictedOpponentMove != null && predictedOpponentMove.toString().equals(lastMove)) {
 			// Allow AI to continue processing for rest of turn
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(timeForMove);
 			} catch (InterruptedException exception){}
-			// Kill search
-			opponentThinkTask.cancel(true);
-			thread.interrupt();
+			killSearch();
 			ScoredBreakthroughMove response = new ScoredBreakthroughMove(opponentMoveResponse);
 			// Set predicted opponent move to new prediction
 			predictedOpponentMove.set(currentPredictedOppMove);
 			// Assume opponent makes this move and start new search
 			searchOnOpponentTurn((BreakthroughState)brd, this.depthLimit, response);
+			timeLeft = timeLeft - (System.currentTimeMillis() - startTime);
 			return response;
-		} else if (opponentThinkTask != null) {
-			// Kill search
-			opponentThinkTask.cancel(true);
-			thread.interrupt();
 		}
+		killSearch();
 		// Perform new search and return results with actual opponent move
-		return iterateDeepeningSearch(brd, 3000);
+		GameMove result = iterateDeepeningSearch(brd, timeForMove);
+		timeLeft = timeLeft - (System.currentTimeMillis() - startTime);
+		return result;
 	}
 	
 	public static void main(String [] args)
 	{
 		int depth = 20;
-		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
-//		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
+		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta2", depth);
+//		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta2", depth);
 //		((BaseBreakthroughPlayer)p2).WEIGHT_TWO = ((BaseBreakthroughPlayer)p2).WEIGHT_THREE =
 //				((BaseBreakthroughPlayer)p2).WEIGHT_FOUR = 0;
 //		((BaseBreakthroughPlayer)p2).WEIGHT_ONE = 1.00;
-
-		p.compete(args);
+//		p.compete(args);
 //		p2.compete(args);
 
-//		p.init();
-//		String brd =
-//				"BBBBBBBB" +
-//				"BBBB.BB." +
-//				"....B..B" +
-//				"WB......" +
-//				"........" +
-//				"........" +
-//				"WWWWWWWW" +
-//				".WWWWWWW" +
-//				"[AWAY 5 GAME_ON]";
-//
-//		BreakthroughState state = new BreakthroughState();
-//		state.parseMsgString(brd);
-//		GameMove mv = p.getMove(state, "");
-//		System.out.println("Original board");
-//		System.out.println(state.toString());
-//		System.out.println("Move: " + mv.toString());
-//		System.out.println("Board after move");
-//		state.makeMove(mv);
-//		System.out.println(state.toString());
-//		System.out.println(((AlphaBetaBreakthroughPlayer)p).predictedOpponentMove);
+		p.init();
+		String brd =
+				"BBB.BBBB" +
+						"W.B.BBBB" +
+						".WWB...." +
+						"........" +
+						"B......." +
+						"........" +
+						"WW.WWWWW" +
+						"...WWWWW" +
+						"[AWAY 31 GAME_ON]";
+
+		BreakthroughState state = new BreakthroughState();
+		state.parseMsgString(brd);
+		GameMove mv = p.getMove(state, "");
+		System.out.println("Original board");
+		System.out.println(state.toString());
+		System.out.println("Move: " + mv.toString());
+		System.out.println("Board after move");
+		state.makeMove(mv);
+		System.out.println(state.toString());
 	}
 }
