@@ -6,6 +6,10 @@
 
 package Al;
 
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import breakthrough.BreakthroughState;
 import game.GameMove;
 import game.GamePlayer;
@@ -16,8 +20,19 @@ import game.GameState;
 // except for the search process, which uses alpha beta pruning.
 
 public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
+	public PrintWriter writer;
+
 	public AlphaBetaBreakthroughPlayer(String nname, int d)
-	{ super(nname, d); }
+	{
+		super(nname, d);
+		try{
+			this.writer = new PrintWriter("opening-playbook.txt", "UTF-8");
+		} catch (Exception e) {
+			// do something
+			System.out.println("HEY");
+		}
+
+	}
 
 	/**
 	 * Performs alpha beta pruning.
@@ -52,8 +67,6 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 
 			for (int i = 0; i < BreakthroughState.N; i++) {
 				for (int c = 0; c < BreakthroughState.N; c++) {
-//			for (int i = BreakthroughState.N - 1; i >= 0; i--) {
-//				for (int c = BreakthroughState.N - 1; c >= 0; c--) {
 					if (brd.board[i][c] == (currTurn.equals(GameState.Who.HOME) ? BreakthroughState.homeSym
 							: BreakthroughState.awaySym)) {
 						// Make move on board
@@ -100,42 +113,112 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 			}
 		}
 	}
+
+	public void addMove(GameState brd, String move) {
+		this.writer.println(brd);
+		this.writer.println(move);
+	}
 		
-	public GameMove getMove(GameState brd, String lastMove)
-	{ 
-		alphaBeta((BreakthroughState)brd, 0, Double.NEGATIVE_INFINITY,
-										 Double.POSITIVE_INFINITY);
-		System.out.println(mvStack[0].score + " -> " + mvStack[0].toString());
+	public GameMove getMove(GameState brd, String lastMove, boolean myTurn)
+	{
+		if (brd.getNumMoves() > 9) {
+			return null;
+		} else if (!myTurn) {
+			ScoredBreakthroughMove tempMv = new ScoredBreakthroughMove(0, 0, 0, 0, 0);
+			int dir = -1;
+			for (int i = 0; i < BreakthroughState.N; i++) {
+				for (int c = 0; c < BreakthroughState.N; c++) {
+					if (((BreakthroughState) brd).board[i][c] == ( BreakthroughState.awaySym)) {
+						// Make move on board
+						for (int horizDir = -1; horizDir < 2; horizDir++) {
+							tempMv.set(i, c, i + dir, c + horizDir, 0);
+							if (brd.moveOK(tempMv)) {
+								BreakthroughState copy = (BreakthroughState)brd.clone();
+								copy.makeMove(tempMv);
+								getMove(copy, tempMv.toString(), !myTurn);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			init();
+			alphaBeta((BreakthroughState) brd, 0, Double.NEGATIVE_INFINITY,
+					Double.POSITIVE_INFINITY);
+			BreakthroughState copy = (BreakthroughState)brd.clone();
+			copy.makeMove(mvStack[0]);
+			addMove(brd, mvStack[0].toString());
+			getMove(copy, copy.toString(), !myTurn);
+		}
+		return mvStack[0];
+	}
+
+	public GameMove getMoveAway(GameState brd, String lastMove, boolean myTurn)
+	{
+		if (brd.getNumMoves() > 9) {
+			return null;
+		} else if (!myTurn) {
+			ScoredBreakthroughMove tempMv = new ScoredBreakthroughMove(0, 0, 0, 0, 0);
+			int dir = 1;
+			for (int i = BreakthroughState.N - 1; i >=0; i++) {
+				for (int c = BreakthroughState.N - 1; c >= 0; c++) {
+					if (((BreakthroughState) brd).board[i][c] == ( BreakthroughState.homeSym)) {
+						// Make move on board
+						for (int horizDir = -1; horizDir < 2; horizDir++) {
+							tempMv.set(i, c, i + dir, c + horizDir, 0);
+							if (brd.moveOK(tempMv)) {
+								BreakthroughState copy = (BreakthroughState)brd.clone();
+								copy.makeMove(tempMv);
+								getMove(copy, tempMv.toString(), !myTurn);
+							}
+						}
+					}
+				}
+			}
+		} else {
+			init();
+			alphaBeta((BreakthroughState) brd, 0, Double.NEGATIVE_INFINITY,
+					Double.POSITIVE_INFINITY);
+			BreakthroughState copy = (BreakthroughState)brd.clone();
+			copy.makeMove(mvStack[0]);
+			addMove(brd, mvStack[0].toString());
+			getMove(copy, copy.toString(), !myTurn);
+		}
 		return mvStack[0];
 	}
 	
 	public static void main(String [] args)
 	{
-		int depth = 6;
+		int depth = 10;
 		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 //		((BaseBreakthroughPlayer)p2).WEIGHT_TWO = ((BaseBreakthroughPlayer)p2).WEIGHT_THREE =
 //				((BaseBreakthroughPlayer)p2).WEIGHT_FOUR = 0;
 //		((BaseBreakthroughPlayer)p2).WEIGHT_ONE = 1.00;
 
-		p.compete(args);
+//		p.compete(args);
 //		p2.compete(args);
 
-//		p.init();
-//		String brd =
-//				"BBBBBBBB" +
-//				"BBBBB..B" +
-//				".....BB." +
-//				"........" +
-//				".......W" +
-//				"........" +
-//				"WWWWWWW." +
-//				"WWWWWWWW" +
-//				"[HOME 4 GAME_ON]";
-//
-//		BreakthroughState state = new BreakthroughState();
-//		state.parseMsgString(brd);
-//		GameMove mv = p.getMove(state, "");
+		p.init();
+		String brd =
+				"BBBBBBBB" +
+				"BBBBBBBB" +
+				"........" +
+				"........" +
+				"........" +
+				"........" +
+				"WWWWWWWW" +
+				"WWWWWWWW" +
+				"[HOME 1 GAME_ON]";
+
+
+
+		BreakthroughState state = new BreakthroughState();
+		state.parseMsgString(brd);
+		((AlphaBetaBreakthroughPlayer)p).getMove(state, "", true);
+		((AlphaBetaBreakthroughPlayer)p).getMoveAway(state, "", false);
+		((AlphaBetaBreakthroughPlayer)p).writer.close();
+
 //		System.out.println("Original board");
 //		System.out.println(state.toString());
 //		System.out.println("Move: " + mv.toString());
