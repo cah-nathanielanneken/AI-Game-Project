@@ -1,7 +1,7 @@
-/* Copyright (C) Mike Zmuda - All Rights Reserved
+/* Copyright (C) Nathan Anneken, Alex Rinehart, Max Anderson - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Mike Zmuda <zmudam@miamioh.edu>, 2010-2015
+ * Written by Nathan Anneken, Alex Rinehart, Max Anderson, 2016
  */
 
 package Al;
@@ -13,6 +13,7 @@ import game.GamePlayer;
 import game.GameState;
 
 import java.util.concurrent.*;
+import java.util.Hashtable;
 
 
 // AlphaBetaConnect4Player is identical to MiniMaxConnect4Player
@@ -24,6 +25,7 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 	public FutureTask<ScoredBreakthroughMove> opponentThinkTask;
 	public Thread thread;
 	public long timeLeft;
+	public Hashtable<String, String> openingPlayBook;
 
 	public AlphaBetaBreakthroughPlayer(String nname, int d)
 	{
@@ -253,28 +255,27 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 		
 	public GameMove getMove(GameState brd, String lastMove)
 	{
-		// 0 - 5 seconds used, do search (first 6 moves)
-		// 5 - 155 seconds used (150 seconds), 5 second moves
-		// 155 - 230 seconds used (75 seconds), 3 second moves
+		// 0 - 175 seconds used (175 seconds), 7 second moves
+		// 175 - 230 seconds used (55 seconds), 5 second moves
 		// 230 - 240 seconds used (10 seconds), 5 depth search
 
 		long startTime = System.currentTimeMillis();
 		// New board game, reset predicted moves
 		if (brd.getNumMoves() <= 1) {
 			predictedOpponentMove.set(0, 0, 0, 0, 0);
-			//timeLeft = BreakthroughState.gameParams.integer("GAMETIME");
 			timeLeft = 240000;
 		}
 		// Set turn time
 		int timeForMove;
-		if (timeLeft >= 85000) {
+		System.out.println(timeLeft);
+		if (timeLeft >= 65000) {
+			// 7 second turns
+			System.out.println("7 second turn!!");
+			timeForMove = 7000;
+		} else if (timeLeft >= 10000) {
 			// 5 second turns
 			System.out.println("5 second turn!!");
 			timeForMove = 5000;
-		} else if (timeLeft >= 10000) {
-			// 3 second turns
-			System.out.println("3 second turn!!");
-			timeForMove = 3000;
 		} else {
 			// Panic mode
 			System.out.println("PANIC TIME");
@@ -309,34 +310,8 @@ public class AlphaBetaBreakthroughPlayer extends MiniMaxBreakthroughPlayer {
 	public static void main(String [] args)
 	{
 		int depth = 20;
-		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta2", depth);
-//		GamePlayer p2 = new AlphaBetaBreakthroughPlayer("AlphaBeta2", depth);
-//		((BaseBreakthroughPlayer)p2).WEIGHT_TWO = ((BaseBreakthroughPlayer)p2).WEIGHT_THREE =
-//				((BaseBreakthroughPlayer)p2).WEIGHT_FOUR = 0;
-//		((BaseBreakthroughPlayer)p2).WEIGHT_ONE = 1.00;
-//		p.compete(args);
-//		p2.compete(args);
+		GamePlayer p = new AlphaBetaBreakthroughPlayer("AlphaBeta", depth);
 
-		p.init();
-		String brd =
-				"BBB.BBBB" +
-						"W.B.BBBB" +
-						".WWB...." +
-						"........" +
-						"B......." +
-						"........" +
-						"WW.WWWWW" +
-						"...WWWWW" +
-						"[AWAY 31 GAME_ON]";
-
-		BreakthroughState state = new BreakthroughState();
-		state.parseMsgString(brd);
-		GameMove mv = p.getMove(state, "");
-		System.out.println("Original board");
-		System.out.println(state.toString());
-		System.out.println("Move: " + mv.toString());
-		System.out.println("Board after move");
-		state.makeMove(mv);
-		System.out.println(state.toString());
+		p.compete(args);
 	}
 }
